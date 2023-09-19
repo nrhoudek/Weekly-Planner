@@ -1,19 +1,17 @@
 import Task from './Task'
-import { taskItem } from './Layout'
+import { taskItem } from './types/shared-types'
 
-type taskListProps = {
-  taskList: taskItem[];
-  removeTask: (id: number) => void;
+export type taskList = {
+    tasks: taskItem[];
+    removeTask: (id: number) => void;
 }
 
-export default function TaskList({ taskList, removeTask } : taskListProps) {
-  return (
-    <ul>
-      {taskList.map((task) => {
-          // key ={0} as temp fix for issue
-          return <Task key={0} id={task.id} task={task.task} removeTask={removeTask} />
-        })
-      }
-    </ul>
-  )
+export default function TaskList({ tasks, removeTask } : taskList) {
+    return (
+        <ul className="mb-2">
+            {tasks.map((task) => {
+                return <Task key={task.id} id={task.id} content={task.content} removeTask={removeTask} />
+            })}
+        </ul>
+    )
 }

@@ -2,37 +2,33 @@
 import { useState } from 'react'
 import AddTaskForm from './AddTaskForm'
 import TaskList from './TaskList'
+import { taskItem } from './types/shared-types'
 
-export type taskItem = {
-  id: number;
-  task: string
-}
+export default function Layout() {
+    const [tasks, setTasks] = useState<taskItem[]>([]);
+    const [id, setId] = useState(0);
 
-export default function Container() {
-  const [taskList, setTaskList] = useState<taskItem[]>([]);
-  const [id, setId] = useState(0);
+    function addTask(newTask: string) {
+        const tempTask = {
+            id: id,
+            content: newTask
+        }
 
-  function addTask(task: string) {
-    const newTask = {
-      id: id,
-      task: task
+        const newTaskList = [...tasks, tempTask]
+        setTasks(newTaskList);
+        setId(prev => prev + 1);
     }
-    
-    const newTaskList = [...taskList, newTask]
-    setTaskList(newTaskList);
-    setId(prev => prev + 1);
-  }
 
-  function removeTask(id: number) {
-    const filteredTaskList = taskList.filter(task => task.id !== id);
-    const newTaskList = filteredTaskList
-    setTaskList(newTaskList);
-  }
+    function removeTask(id: number) {
+        const filteredTaskList = tasks.filter(task => task.id !== id);
+        const newTaskList = filteredTaskList
+        setTasks(newTaskList);
+    }
 
-  return (
-    <div>
-      <AddTaskForm addTask={addTask}/>
-      <TaskList taskList={taskList} removeTask={removeTask}/>
+    return (
+    <div className="max-w-xs">
+        <TaskList tasks={tasks} removeTask={removeTask}/>
+        <AddTaskForm addTask={addTask}/>
     </div>
-  )
+    )
 }

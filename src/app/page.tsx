@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import Day from './components/Day/Layout'
+import Layout from './components/Day/Layout'
 
 export default function Home() {
-  return (
+    return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <Day />
+        <Layout />
     </main>
-  )
+    )
 }
