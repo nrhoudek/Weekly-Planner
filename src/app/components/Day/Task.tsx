@@ -1,9 +1,16 @@
+import RemoveButton from './RemoveButton'
+
 type taskProps = {
-	content: String;
+    id: number;
+    task: String;
+    removeTask: (id: number) => void;
 }
 
-export default function Task({content} : taskProps) {
+export default function Task({ id, task, removeTask }: taskProps) {
   return (
-    <li>{content}</li>
+    <li className='flex justify-between'>
+        {task}
+        <RemoveButton id={id} removeTask={removeTask}/>
+    </li>
   )
 }
