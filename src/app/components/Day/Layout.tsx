@@ -1,22 +1,19 @@
 'use client';
-import { useState } from 'react';
 import AddTaskForm from './AddTaskForm';
 import TaskList from './TaskList';
-import { taskItem } from './types/shared-types';
+import useLocalStorage from './hooks/useLocalStorage';
 
 export default function Layout() {
-    const [tasks, setTasks] = useState<taskItem[]>([]);
-    const [id, setId] = useState(0);
+    const [tasks, setTasks] = useLocalStorage('Tasks', []);
 
-    function addTask(newTask: string) {
-        const tempTask = {
-            id: id,
-            content: newTask,
+    function addTask(newTaskContent: string) {
+        const newTask = {
+            id: Date.now(),
+            content: newTaskContent,
         };
 
-        const newTaskList = [...tasks, tempTask];
+        const newTaskList = [...tasks, newTask];
         setTasks(newTaskList);
-        setId(prev => prev + 1);
     }
 
     function removeTask(id: number) {

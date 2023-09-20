@@ -13,8 +13,8 @@ export default function AddTaskForm({ addTask }: addTaskFormProps) {
 
         if (inputText === '') return;
 
-        const newTask = inputText;
-        addTask(newTask);
+        const newTaskContent = inputText;
+        addTask(newTaskContent);
         setInputText('');
     }
 
