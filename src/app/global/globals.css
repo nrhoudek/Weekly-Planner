@@ -6,6 +6,6 @@
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom right, #ffffff 0%, #fff6f5 100%);
+    background: #a5b4fc;
+    padding: 1.25rem 0;
 }
