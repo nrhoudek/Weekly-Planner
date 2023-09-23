@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 
-type addTaskFormProps = {
+type QuickAddTaskProps = {
   addTask: (newTask: string) => void;
 };
 
-export default function AddTaskForm({ addTask }: addTaskFormProps) {
+export default function QuickAddTask({ addTask }: QuickAddTaskProps) {
   const [inputText, setInputText] = useState<string>("");
 
   function handleClick(event: React.MouseEvent<HTMLElement>) {

@@ -1,4 +1,5 @@
 import { useModal } from "../../context/ModalContext";
+import AddTaskForm from "./AddTaskForm";
 
 export default function Modal() {
   const isShowing = useModal();
@@ -7,12 +8,12 @@ export default function Modal() {
 
   return (
     <div
-      className={`absolute top-0 left-0 flex items-center justify-center bg-black/20 h-screen w-screen transition-opacity ease-out duration-200 ${
+      className={`fixed top-0 left-0 flex items-center justify-center bg-black/20 min-h-screen h-full w-full transition-opacity ease-out duration-200 ${
         isShowing ? stylingOnShow : stylingOnHide
       }`}
     >
-      <div className="bg-white rounded-md p-4">
-        <h1>HELLLLLOOOOOOO</h1>
+      <div className="bg-white rounded-md p-8 w-full mx-4">
+        <AddTaskForm />
       </div>
     </div>
   );

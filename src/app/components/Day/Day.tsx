@@ -1,6 +1,6 @@
 "use client";
 import DateHeader from "./DateHeader";
-import AddTaskForm from "./AddTaskForm";
+import QuickAddTask from "./QuickAddTask";
 import TaskList from "./TaskList";
 import useLocalStorage from "./hooks/useLocalStorage";
 
@@ -35,7 +35,7 @@ export default function Day({ storageKey, dateModifier }: dayProps) {
     >
       <DateHeader dateModifier={dateModifier} />
       <TaskList tasks={tasks} removeTask={removeTask} />
-      <AddTaskForm addTask={addTask} />
+      <QuickAddTask addTask={addTask} />
     </div>
   );
 }
