@@ -33,12 +33,12 @@ export default function DateHeader({ dateModifier }: dateHeaderProps) {
       >
         {date}
       </h2>
-      <button
+      {/* <button
         className="px-4 py-2 bg-emerald-300 hover:bg-emerald-500 rounded font-semibold"
         onClick={toggleModal}
       >
         Add Task
-      </button>
+      </button> */}
     </header>
   );
 }

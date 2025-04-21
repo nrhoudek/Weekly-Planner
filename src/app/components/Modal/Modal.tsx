@@ -12,7 +12,7 @@ export default function Modal() {
         isShowing ? stylingOnShow : stylingOnHide
       }`}
     >
-      <div className="bg-white rounded-md p-8 w-full mx-4">
+      <div className="bg-white rounded-md p-8 w-full mx-4 max-w-lg">
         <AddTaskForm />
       </div>
     </div>
